@@ -9,7 +9,7 @@ import retrofit2.Response
 
 
 class RepositoryImpl @Inject constructor(val api: Api) : Repository {
-    override suspend fun getMovies(page: Int,perPage:Int): Response<List<AllPhotos>?> {
+    override suspend fun getPhotos(page: Int,perPage:Int): Response<List<AllPhotos>?> {
         return api.getPhotos(page, perPage)
     }
 }

@@ -5,7 +5,7 @@ import retrofit2.Response
 
 
 interface Repository {
-    suspend fun getMovies(
+    suspend fun getPhotos(
        page: Int,perPage:Int
     ): Response<List<AllPhotos>?>
 

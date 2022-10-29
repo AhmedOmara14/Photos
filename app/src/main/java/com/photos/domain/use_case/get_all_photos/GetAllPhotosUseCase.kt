@@ -1,7 +1,5 @@
 package com.photos.domain.use_case.get_all_photos
 
-
-import android.util.Log
 import com.photos.common.Resource
 import com.photos.domain.model.all_photos.AllPhotos
 import com.photos.domain.repository.Repository
@@ -18,8 +16,8 @@ class GetAllPhotosUseCase @Inject constructor(val repository: Repository) {
     ): Flow<Resource<List<AllPhotos>>> = flow {
         try {
             emit(Resource.Loading<List<AllPhotos>>())
-            val movies = repository.getMovies(page,perPage)
-            emit(Resource.Success<List<AllPhotos>>(movies.body()))
+            val photos = repository.getPhotos(page,perPage)
+            emit(Resource.Success<List<AllPhotos>>(photos.body()))
         } catch (e: HttpException) {
             emit(Resource.Error<List<AllPhotos>>(e.localizedMessage ?: "an Error Occurred"))
         } catch (e: IOException) {
